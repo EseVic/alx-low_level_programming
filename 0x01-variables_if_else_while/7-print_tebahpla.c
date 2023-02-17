@@ -2,17 +2,18 @@
 /**
  * main - Entry point
  *
- * Return: Always 0 (Succes)
+ *
+ * Return: Always 0 (Sucess)
  */
 
 int main(void)
 {
-int n;
+char c;
 
-for (n = 0 ; n < 10 ; n++)
+for (c = 'z' ; c >= 'a' ; c--)
 {
-putchar(n + '0');
-}
+putchar(c);
+	}
 putchar('\n');
 return (0);
 }
