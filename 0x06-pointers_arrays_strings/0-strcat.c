@@ -4,7 +4,6 @@
  * @dest: pointer to destination string.
  * @src: pointer to source string.
  * Return: pointer to destination string.
- * This code is written by karintoks.
  */
 char *_strcat(char *dest, char *src)
 {

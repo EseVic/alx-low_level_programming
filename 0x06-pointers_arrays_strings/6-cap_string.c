@@ -5,7 +5,6 @@
  * new line, ,, ;, ., !, ?, ", (, ), {, and }.
  * @s: pointer to string."
  * Return: pointer to s.
- * This code is written by karintoks.
  */
 char *cap_string(char *s)
 {

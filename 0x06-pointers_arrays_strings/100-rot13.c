@@ -4,7 +4,6 @@
  * rot13 - encode strings using rot13 encoding.
  * @str: string to be encoded
  * Return: encoded string.
- * This code is written by karintoks.
  */
 char *rot13(char *str)
 {

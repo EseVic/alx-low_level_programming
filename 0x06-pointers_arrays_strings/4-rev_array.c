@@ -4,7 +4,6 @@
  * @a: pointer to array.
  * @n: number of elements of an array.
  * Return: void.
- * This code is written by karintoks.
  */
 void reverse_array(int *a, int n)
 {
