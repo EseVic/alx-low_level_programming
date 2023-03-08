@@ -4,7 +4,6 @@
  * @n: number
  * @c: ne
  * Return: sqr root
- * This code is written by karintoks
  */
 int _sqrtcheck(int n, int c);
 int _sqrt_recursion(int n)
