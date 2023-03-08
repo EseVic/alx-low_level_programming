@@ -4,7 +4,6 @@
  * @s1: String being compared
  * @s2: String being compared against
  * Return: 1 if considered identical, 0 otherwise
- * This code is written by karintoks
  */
 int wildcmp(char *s1, char *s2)
 {
