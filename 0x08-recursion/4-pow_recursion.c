@@ -4,7 +4,6 @@
  * @x:base
  * @y:exponent
  * Return: pow or -1 for fail
- * This code is written by karintoks
  */
 int _pow_recursion(int x, int y)
 {
