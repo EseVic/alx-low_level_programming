@@ -3,7 +3,6 @@
  * _strlen_recursion - messures string
  * @s: string to messure
  * Return: length
- * This code is written by karintoks
  */
 int _strlen_recursion(char *s)
 {

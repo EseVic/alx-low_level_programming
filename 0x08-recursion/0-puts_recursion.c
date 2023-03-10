@@ -2,7 +2,6 @@
 /**
  * _puts_recursion - clone of puts with recursion
  * @s: string to print
- * This code is written by karintoks
  */
 void _puts_recursion(char *s)
 {

@@ -4,7 +4,6 @@ int palcheck(char *c, int len, int i);
  * is_palindrome - calls funcions to check length then check if palindorme
  * @s:string
  * Return:1 if palindorme 0 if not
- * This code is written by karintoks
  */
 int is_palindrome(char *s)
 {

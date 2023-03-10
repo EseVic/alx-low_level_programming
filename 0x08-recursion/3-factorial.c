@@ -3,7 +3,6 @@
  * factorial - returns factors
  * @n: num to factor
  * Return: factor
- * This code is written by karintoks
  */
 int factorial(int n)
 {

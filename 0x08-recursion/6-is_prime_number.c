@@ -6,7 +6,6 @@ int is_prime_number(int n);
  * @n: num
  * @d:num to div
  * Return: 1 pass 0 fail
- * This code is written by karintoks
  */
 
 int div(int n, int d)
