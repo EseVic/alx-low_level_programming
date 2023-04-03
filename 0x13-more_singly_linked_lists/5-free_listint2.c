@@ -16,18 +16,17 @@
 
 void free_listint2(listint_t **head)
 {
-	listint_t *caret;
-	listint_t **temp = head;
+	listint_t *foo;
 
-	if (temp != NULL)
+	if (head == NULL)
+		return;
+
+	while (*head)
 	{
-		while (*head != NULL)
-		{
-			caret = *head;
-			free(caret);
-			*head = (*head)->next;
-		}
-
-		*temp = NULL;
+		foo = (*head)->next;
+		free(*head);
+		*head = foo;
 	}
+
+	head = NULL;
 }
