@@ -13,19 +13,17 @@
  *
  * Return: The number of nodes in the list_t list.
  */
+
 size_t print_listint(const listint_t *h)
 {
-	size_t nodes_number = 0;
+	const listint_t *newnode = h;
+	size_t count = 0;
 
-	if (!h)
-		return (0);
-
-	while (h)
+	while (newnode != NULL)
 	{
-		nodes_number++;
-		printf("%d\n", h->n);
-		h = h->next;
+		printf("%d\n", newnode->n);
+		count += 1;
+		newnode = newnode->next;
 	}
-
-	return (nodes);
+	return (count);
 }
