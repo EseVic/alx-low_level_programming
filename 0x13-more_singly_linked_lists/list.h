@@ -1,6 +1,12 @@
 #ifndef LISTS_H
 #define LISTS_H
 
+/**
+ * Name of file: list.h
+ * written by Ese Vic
+ * Desc: This is a header file containing prototypes and definitions for all functions
+ *  and types written in the 0x13-more_singly_linked_lists directory
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
