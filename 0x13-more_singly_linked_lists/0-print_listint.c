@@ -16,14 +16,14 @@
 
 size_t print_listint(const listint_t *h)
 {
-	const listint_t *newnode = h;
+	const listint_t *caret = h;
 	size_t count = 0;
 
-	while (newnode != NULL)
+	while (caret != NULL)
 	{
-		printf("%d\n", newnode->n);
+		printf("%d\n", caret->n);
 		count += 1;
-		newnode = newnode->next;
+		caret = caret->next;
 	}
 	return (count);
 }
