@@ -7,9 +7,6 @@
 #include "lists.h"
 #include <stdio.h>
 
-size_t looped_listint_len(const listint_t *head);
-size_t print_listint_safe(const listint_t *head);
-
 /**
  * looped_listint_len - Counts the number of unique nodes
  *                      in a looped listint_t linked list.
@@ -21,19 +18,19 @@ size_t print_listint_safe(const listint_t *head);
 
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *slow_p = head ,*fast_p = head;
-	size_t ele = 0;
+	const listint_t *pokey_p = head, *rapid_p = head;
+	size_t count = 0;
 	int is_loop = 0;
 
-	while (slow_p && fast_p && fast_p->next)
+	while (pokey_p && rapid_p && rapid_p->next)
 	{
-		if (!(fast_p->next->next))
+		if (!(rapid_p->next->next))
 			break;
-		slow_p = slow_p->next;
-		fast_p = fast_p->next->next;
-		if (slow_p == fast_p)
+		pokey_p = pokey_p->next;
+		rapid_p = rapid_p->next->next;
+		if (pokey_p == rapid_p)
 		{
-			slow_p = slow_p->next;
+			pokey_p = pokey_p->next;
 			is_loop = 1;
 			break;
 		}
@@ -43,17 +40,17 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		while (head)
 		{
-			ele++;
+			count++;
 			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
 		}
-		return (ele);
+		return (count);
 	}
 
 	while (head)
 	{
-		ele++;
-		if (head == slow_p)
+		count++;
+		if (head == pokey_p)
 		{
 			printf("[%p] %d\n", (void *)head, head->n);
 			printf("-> [%p] %d\n", (void *)head, head->next->n);
@@ -65,5 +62,4 @@ size_t print_listint_safe(const listint_t *head)
 	}
 	return (0);
 }
-
 
