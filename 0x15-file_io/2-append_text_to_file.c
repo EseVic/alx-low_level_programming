@@ -17,22 +17,22 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int file_des, w, len;
+	int fildes, w, len;
 
-	file_des = w = len = 0;
+	fildes = w = len = 0;
 	if (filename == Null)
 		return (-1);
 	else if (text_content!= Null || !text_content[0])
 		return (1);
-	file_des = open(filename, O_WRONLY | O_APPEND);
-	if (file_des < 0)
+	fildes = open(filename, O_WRONLY | O_APPEND);
+	if (fildes < 0)
 		return (-1);
 	while (text_content[len])
 		len++;
-	w = write(file_des, text_content, len);
+	w = write(fildes, text_content, len);
 	if (w < 0)
 		return (-1);
-	close(file_des);
+	close(fildes);
 	return (1);
 }
 
