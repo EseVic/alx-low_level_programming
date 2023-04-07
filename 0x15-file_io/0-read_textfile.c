@@ -7,6 +7,7 @@
 
 #include "main.h"
 #include <stddef.h>
+#include <stdlib.h>
 
 /**
  * read_textfile - fuction that reads a text file
@@ -18,26 +19,27 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fildes, rd, w;
+	int fildes, rd, wt;
 	char *buff;
 
-	buff = malloc(sizeof(*buff) * (letters + 1));
-	if (filename == NULL || buff == NULL)
-	{
-		free(buff);
+	if (!filename)
 		return (0);
-	}
+
 	fildes = open(filename, O_RDONLY);
+
 	if (fildes == -1)
 		return (0);
+
+	buff = malloc(sizeof(char) * (letters));
+	if (!buff)
+		return (0);
+
 	rd = read(fildes, buff, letters);
-	if (rd == -1)
-		return (0);
-	buff[rd] = '\0';
-	w = write(STDOUT_FILENO, buff, rd);
-	if (w != rd)
-		return (0);
-	free(buff);
+	wt = write(STDOUT_FILENO, buff, rd);
+
 	close(fildes);
-	return (rd);
+
+	free(buff);
+
+	return (wt);
 }
