@@ -33,7 +33,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 /**
 * file_dev -  is the open(filename, O_RDONLY);
-* @r: read(o, buff, letters);
+* @r: read(file_des, buff, letters);
 * @w: write(STDOUT_FILENO, buff, r);
 */
 
