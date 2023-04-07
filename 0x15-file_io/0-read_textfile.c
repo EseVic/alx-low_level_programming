@@ -15,40 +15,38 @@
  * @letters: The max  number of letters to print
  * Return: number of letters read and printed
  */
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t file_des, r, w;
-	char *buff;
+	int fildes, w, rd;
+	char *buffer;
 
-	file_des = r = w = 0;
-	if (filename == NULL)
+	fildes = w = rd = 0;
+	if (!filename || !letters)
+		return (0);
+	fildes = open(filename, O_RDONLY);
+	if (fildes < 0)
 		return (0);
 
-	buff = malloc(sizeof(*buff) * (letters + 1));
-	if (filename == NULL || buff == NULL)
+	bufffer = malloc(sizeof(char) * letters + 1);
+	if (!buffer)
+		return (0);
+	rd = read(fildes, buffer, letters);
+	if (rd < 0)
 	{
-		free(buff);
+		free(buffer);
+		return (0);
+	}
+	buffer[letters] = '\0';
+	w = write(STDOUT_FILENO, buffer, rd);
+	if (w <= 0)
+	{
+		free(buffer);
 		return (0);
 	}
 
-/**
-* file_dev -  is the open(filename, O_RDONLY);
-* @r: read(file_des, buff, letters);
-* @w: write(STDOUT_FILENO, buff, r);
-*/
-
-	file_des = open(filename, O_RDONLY);
-	if (file_des == -1)
-		return (0);
-	r = read(file_des, buff, letters);
-	if (r == -1)
-		return (0);
-	buff[r] = '\0';
-	w = write(STDOUT_FILENO, buff, r);
-	if (w != r)
-		return (0);
-	free(buff);
-	close(file_des);
-	return (n_read);
+	free(buffer);
+	close(fildes);
+	return (rd);
 }
 
