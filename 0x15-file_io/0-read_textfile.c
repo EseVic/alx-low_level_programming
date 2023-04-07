@@ -18,35 +18,26 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fildes, w, rd;
-	char *buffer;
+	int fildes, rd, w;
+	char *buff;
 
-	fildes = w = rd = 0;
-	if (!filename || !letters)
+	buff = malloc(sizeof(*buff) * (letters + 1));
+	if (filename == NULL || buff == NULL)
+	{
+		free(buff);
 		return (0);
+	}
 	fildes = open(filename, O_RDONLY);
-	if (fildes < 0)
+	if (fildes == -1)
 		return (0);
-
-	bufffer = malloc(sizeof(char) * letters + 1);
-	if (!buffer)
+	rd = read(fildes, buff, letters);
+	if (rd == -1)
 		return (0);
-	rd = read(fildes, buffer, letters);
-	if (rd < 0)
-	{
-		free(buffer);
+	buff[rd] = '\0';
+	w = write(STDOUT_FILENO, buff, rd);
+	if (w != rd)
 		return (0);
-	}
-	buffer[letters] = '\0';
-	w = write(STDOUT_FILENO, buffer, rd);
-	if (w <= 0)
-	{
-		free(buffer);
-		return (0);
-	}
-
-	free(buffer);
+	free(buff);
 	close(fildes);
 	return (rd);
 }
-
